@@ -10,7 +10,7 @@ export default function (user) {
         })
         .then(res=>res.json())
         .then(user=>{
-            console.log(user)
+            dispatch({type:'SIGNUP',preload:user})
         })
     }
 }

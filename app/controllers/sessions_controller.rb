@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
         user=User.find_by(:username=>params[:user][:username])
         if user && user.authenticate(params[:user][:password])
             session[:user_id]=user.id
-            render :user
+            render json: user
         else
             reder json:{errors:user.errors.full_messages}
         end
