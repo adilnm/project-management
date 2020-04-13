@@ -2,12 +2,11 @@ class UsersController < ApplicationController
 
     def create
         user=User.new(users_params)
-
         if user.save
             session[:user_id]=user.id
             render :user
         else
-            render json:{error:'cannot signup'}
+            render json:{errors: user.errors.full_messages}
         end
     
     end
